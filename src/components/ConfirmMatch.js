@@ -5,7 +5,6 @@ const ConfirmMatch = ({ user }) => {
   const [pendingMatches, setPendingMatches] = useState([]);
 
   useEffect(() => {
-    // Recupera le partite in attesa di conferma per l'utente
     axios.get(`/api/games/pending/${user.uid}`).then(res => setPendingMatches(res.data));
   }, [user.uid]);
 
@@ -16,12 +15,13 @@ const ConfirmMatch = ({ user }) => {
   };
 
   return (
-    <div>
+    <div className="mt-4">
       <h2>Partite in attesa di conferma</h2>
-      <ul>
+      <ul className="list-group">
         {pendingMatches.map(match => (
-          <li key={match._id}>
-            Partita contro {match.player2} - <button onClick={() => handleConfirm(match._id)}>Conferma</button>
+          <li key={match._id} className="list-group-item d-flex justify-content-between align-items-center">
+            Partita contro {match.player2}
+            <button onClick={() => handleConfirm(match._id)} className="btn btn-success">Conferma</button>
           </li>
         ))}
       </ul>

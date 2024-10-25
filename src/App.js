@@ -6,6 +6,8 @@ import { initializeApp } from 'firebase/app';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Leaderboard from './components/Leaderboard';
 import SubmitMatch from './components/SubmitMatch';
+import ConfirmMatch from './components/ConfirmMatch';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Configurazione Firebase
 const firebaseConfig = {
@@ -42,7 +44,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('/');
+      const response = await axios.get('/api/games/leaderboard');
       console.log(response.data);
     } catch (error) {
       if (error.response && error.response.status === 404) {
@@ -59,24 +61,40 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li><Link to="/leaderboard">Classifica ELO</Link></li>
-            <li><Link to="/submit-match">Registra Partita</Link></li>
-          </ul>
+      <div className="container">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <Link className="navbar-brand" to="/">Ping Pong ELO</Link>
+          <div className="collapse navbar-collapse">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to="/">Classifica ELO</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/submit-match">Registra Partita</Link>
+              </li>
+              {user && (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/confirm-match">Conferma Partite</Link>
+                </li>
+              )}
+            </ul>
+          </div>
+          <div>
+            {user ? (
+              <>
+                <span className="navbar-text">Ciao, {user.displayName}</span>
+                <button onClick={signOutUser} className="btn btn-outline-danger ml-2">Logout</button>
+              </>
+            ) : (
+              <button onClick={signInWithGoogle} className="btn btn-outline-primary">Login con Google</button>
+            )}
+          </div>
         </nav>
-        {user ? (
-          <>
-            <p>Benvenuto, {user.displayName}</p>
-            <button onClick={signOutUser}>Logout</button>
-          </>
-        ) : (
-          <button onClick={signInWithGoogle}>Login con Google</button>
-        )}
+
         <Routes>
-          <Route exact path="/leaderboard" element={<Leaderboard />} />
+          <Route exact path="/" element={<Leaderboard />} />
           <Route path="/submit-match" element={<SubmitMatch user={user} />} />
+          <Route path="/confirm-match" element={<ConfirmMatch user={user} />} />
         </Routes>
       </div>
     </Router>
