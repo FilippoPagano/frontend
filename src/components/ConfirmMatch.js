@@ -9,7 +9,7 @@ const ConfirmMatch = ({ user }) => {
   }, [user.uid]);
 
   const handleConfirm = (gameId) => {
-    axios.post('/api/games/confirm-match', { gameId, confirmer: user.uid })
+    axios.post('http://localhost:5001/api/games/confirm-match', { gameId, confirmer: user.uid })
       .then(() => alert('Partita confermata'))
       .catch(err => console.error(err));
   };

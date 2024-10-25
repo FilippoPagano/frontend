@@ -24,7 +24,7 @@ const SubmitMatch = ({ user }) => {
       alert('Devi essere autenticato per registrare una partita');
       return;
     }
-    axios.post('/api/games/match', { player1: user.uid, player2: opponent, winner: result })
+    axios.post('http://localhost:5001/api/games/match', { player1: user.uid, player2: opponent, winner: result })
       .then(() => {
         alert('Partita inserita in attesa di conferma');
       })

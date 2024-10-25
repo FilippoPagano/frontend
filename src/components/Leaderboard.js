@@ -6,7 +6,7 @@ const Leaderboard = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('/api/games/leaderboard')
+    axios.get('http://localhost:5001/api/games/leaderboard')
       .then(res => {
         setUsers(res.data);
       })

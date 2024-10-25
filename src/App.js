@@ -44,7 +44,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('/api/games/leaderboard');
+      const response = await axios.get('http://localhost:5001/api/games/leaderboard');
       console.log(response.data);
     } catch (error) {
       if (error.response && error.response.status === 404) {
