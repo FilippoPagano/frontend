@@ -64,7 +64,10 @@ function App() {
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <Link className="navbar-brand" to="/">Ping Pong ELO</Link>
-          <div className="collapse navbar-collapse">
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link className="nav-link" to="/">Classifica ELO</Link>
@@ -78,16 +81,16 @@ function App() {
                 </li>
               )}
             </ul>
-          </div>
-          <div>
-            {user ? (
-              <>
-                <span className="navbar-text">Ciao, {user.displayName}</span>
-                <button onClick={signOutUser} className="btn btn-outline-danger ml-2">Logout</button>
-              </>
-            ) : (
-              <button onClick={signInWithGoogle} className="btn btn-outline-primary">Login con Google</button>
-            )}
+            <div className="navbar-nav ml-auto">
+              {user ? (
+                <>
+                  <span className="navbar-text">Ciao, {user.displayName}</span>
+                  <button onClick={signOutUser} className="btn btn-outline-danger ml-2">Logout</button>
+                </>
+              ) : (
+                <button onClick={signInWithGoogle} className="btn btn-outline-primary">Login con Google</button>
+              )}
+            </div>
           </div>
         </nav>
 
