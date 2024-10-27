@@ -1,0 +1,33 @@
+.app-header {
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--dark-green-dark);
+  box-shadow: 0 0 12px 1px var(--dark-green-dark);
+  & .content {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: var(--sm-size);
+    padding-right: var(--sm-size);
+    & .logo-container {
+      padding: 4px;
+      background-color: var(--green-light);
+      box-shadow: 0 0 4px 3px var(--green-dark);
+      width: 60px;
+      height: 60px;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    & .actions-container {
+      width: 70%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.custom-textfield {
+  height: 28px;
+  width: 100%;
+  max-width: 320px;
+  border-radius: var(--xs-size);
+  border: none;
+  padding-left: var(--xs-size);
+  color: var(--dark-green-dark);
+  box-shadow: 0 0 20px var(--green-light);
+  margin-left: var(--xs-size);
+  margin-right: var(--xs-size);
+  appearance: none;
+  &::placeholder {
+    font-weight: 300;
+  }
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 28px var(--green-light);
+  }
+}

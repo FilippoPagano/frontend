@@ -1,0 +1,10 @@
+@forward 'simplebar-react/dist/simplebar.min.css';
+
+.custom-simplebar {
+  padding-bottom: var(--md-size);
+  padding-top: var(--md-size);
+  .simplebar-wrapper {
+    width: 100%;
+    height: calc(100dvh - var(--header-height));
+  }
+}

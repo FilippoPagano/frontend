@@ -1,0 +1,22 @@
+.custom-button {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: var(--sm-size);
+  border: none;
+  background-color: var(--green-main);
+  box-shadow: 0 0 8px var(--green-dark);
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+  &:hover {
+    background-color: var(--green-light);
+  }
+  font-weight: 600;
+  p {
+    font-weight: 600;
+  }
+  & :disabled {
+    cursor: not-allowed;
+  }
+}

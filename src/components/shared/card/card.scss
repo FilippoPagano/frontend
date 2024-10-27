@@ -1,0 +1,8 @@
+.card {
+  width: 100%;
+  min-height: calc(100dvh - 144px);
+  border: 1px solid var(--black-light);
+  box-shadow: 2px 4px 8px 2px var(--black-light);
+  border-radius: var(--xs-size);
+  background-color: var(--black-light);
+}
